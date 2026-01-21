@@ -1,5 +1,5 @@
-import type { Directory } from '@capacitor/filesystem';
 import type { PluginListenerHandle } from '@capacitor/core';
+import type { Directory } from '@capacitor/filesystem';
 
 export type Base64String = string;
 
@@ -37,12 +37,12 @@ export interface CurrentRecordingStatus {
 /**
  * Event payload for voiceRecordingInterrupted event (empty - no data)
  */
-export interface VoiceRecordingInterruptedEvent {}
+export type VoiceRecordingInterruptedEvent = Record<string, never>;
 
 /**
  * Event payload for voiceRecordingInterruptionEnded event (empty - no data)
  */
-export interface VoiceRecordingInterruptionEndedEvent {}
+export type VoiceRecordingInterruptionEndedEvent = Record<string, never>;
 
 export interface VoiceRecorderPlugin {
   canDeviceVoiceRecord(): Promise<GenericResponse>;
