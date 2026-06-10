@@ -46,6 +46,21 @@ Add the following to your `Info.plist`:
 <string>This app uses the microphone to record audio.</string>
 ```
 
+#### CocoaPods vs. Swift Package Manager
+
+The iOS plugin ships with both a CocoaPods podspec and a `Package.swift`, so it
+works with either dependency manager. You don't need to do anything special —
+`npx cap sync` detects whether your app uses CocoaPods or Swift Package Manager
+and wires the plugin up accordingly.
+
+For an SPM-based app, `npx cap sync ios` adds `CapacitorVoiceRecorder` to the
+generated `CapApp-SPM` package automatically. If you ever need to reference it
+manually, the package exposes a single product:
+
+```swift
+.product(name: "CapacitorVoiceRecorder", package: "CapacitorVoiceRecorder")
+```
+
 ## Supported methods
 
 | Name                            | Android | iOS | Web |
